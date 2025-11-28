@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MindWell — Articles & Resources</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      background-color: #f9fafb;
+      color: #212529;
+      line-height: 1.5;
+      background-image: url(wing.jpg);
+      background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    }
+    .articles-page {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 40px 16px;
+    }
+    .articles-page h1 {
+      text-align: center;
+      font-size: 2.25em;
+      margin-bottom: 24px;
+    }
+
+    /* Article list / card grid */
+    .articles-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      margin-bottom: 48px;
+    }
+    .article-card {
+      background: #4F46E5;
+      border-radius: 12px;
+      padding: 24px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      display: flex;
+      flex-direction: column;
+    }
+    .article-card h3 {
+      margin: 0 0 12px;
+      font-size: 1.25em;
+    }
+    .article-card h3 a {
+      color: white;  /* primary color */
+      text-decoration: none;
+    }
+    .article-card h3 a:hover {
+      text-decoration: underline;
+    }
+    .article-card p {
+      flex: 1;
+      margin-bottom: 16px;
+      color: white;
+      font-size: 0.95em;
+    }
+    .article-card a.read-more {
+      align-self: flex-start;
+      color: #4F46E5;
+      font-weight: 500;
+      text-decoration: none;
+    }
+    .article-card a.read-more:hover {
+      text-decoration: underline;
+    }
+
+    /* External links list (simple links) */
+    .links-section {
+      background: white;
+      border-radius: 12px;
+      padding: 24px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .links-section h2 {
+      margin-top: 0;
+      font-size: 1.75em;
+      margin-bottom: 16px;
+    }
+    .links-section ul {
+      list-style: disc inside;
+      padding-left: 0;
+    }
+    .links-section li {
+      margin: 8px 0;
+    }
+    .links-section li a {
+      color: #4F46E5;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .links-section li a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="articles-page">
+    <h1>Helpful Mental Health Articles & Resources</h1>
+
+    <!-- Example article cards -->
+    <div class="articles-grid">
+      <div class="article-card">
+        <h3><a href="https://www.headspace.com/articles/mental-health" target="_blank" rel="noopener">Mental Health & Well-Being Articles • Headspace</a></h3>
+        <p>Headspace offers a wide range of articles on stress, anxiety, meditation and mental wellness to support emotional health and resilience. :contentReference[oaicite:0]{index=0}</p>
+        <a class="read-more" href="https://www.headspace.com/articles/mental-health" target="_blank" rel="noopener">Read More →</a>
+      </div>
+
+      <div class="article-card">
+        <h3><a href="https://www.ama hahealth.com/resources/articles/" target="_blank" rel="noopener">Mental Health Articles & Resources • Amaha Health</a></h3>
+        <p>Amaha publishes clinically-vetted blogs and articles covering depression, trauma, therapy insights, and emotional wellness guidance. :contentReference[oaicite:1]{index=1}</p>
+        <a class="read-more" href="https://www.amahahealth.com/resources/articles/" target="_blank" rel="noopener">Read More →</a>
+      </div>
+
+      <div class="article-card">
+        <h3><a href="https://www.mentalhealthathome.org/resources/resource-directory/" target="_blank" rel="noopener">Mental Health Resource Directory • MentalHealthAtHome</a><_
+            <p>A curated directory of free mental-health apps, wellness guides, and mindfulness resources to support self-care and coping strategies. :contentReference[oaicite:2]{index=2}</p>
+        <a class="read-more" href="https://www.mentalhealthathome.org/resources/resource-directory/" target="_blank" rel="noopener">Read More →</a>
+      </div>
+
+      <!-- Add more article-card blocks as needed -->
+    </div>
+
+    <!-- External links list -->
+    <div class="links-section">
+      <h2>More Useful Websites & Articles</h2>
+      <ul>
+        <li><a href="https://www.helpguide.org" target="_blank" rel="noopener">HelpGuide.org – Evidence-based Mental Health & Wellness Guides</a></li>
+        <li><a href="https://www.nami.org" target="_blank" rel="noopener">NAMI – National Alliance on Mental Illness (Support & Education)</a></li>
+        <li><a href="https://www.psy chcentral.com" target="_blank" rel="noopener">Psych Central – Psychology & Self-Help Resources</a></li>
+        <li><a href="https://www.mentalhealth.org" target="_blank" rel="noopener">MentalHealth.org – Mental Health Education & Support Resources</a></li>
+        <li><a href="https://www.verywellmind.com" target="_blank" rel="noopener">Verywell Mind – Articles on Anxiety, Depression, Stress & Well-being</a></li>
+        <!-- Add more links as desired -->
+      </ul>
+    </div>
+
+  </div>
+
+</body>
+</html>
