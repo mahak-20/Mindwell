@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MindWell — Mindfulness & Self‑Help Resources</title>
+  <script>
+  tailwind.config = {
+
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#4F46E5",
+                        secondary: "#10B981",
+                        accent: "#F59E0B",
+                        dark: "#1F2937",
+                        light: "#F9FAFB"
+                    },
+                    fontFamily: {
+                        'sans': ['Inter', 'system-ui', 'sans-serif']
+                    }
+                }
+            }
+        }
+        const startButton = document.getElementById('startBreathing');
+    const timerDisplay = document.getElementById('breathTimer');
+
+    let totalTime = 5 * 60; // 5 minutes in seconds
+    let timerInterval = null;
+
+    function updateDisplay(seconds) {
+      const m = Math.floor(seconds / 60).toString().padStart(2, '0');
+      const s = (seconds % 60).toString().padStart(2, '0');
+      timerDisplay.textContent = `${m}:${s}`;
+    }
+
+    function startTimer() {
+      if (timerInterval) return;  // already running
+      let timeLeft = totalTime;
+      updateDisplay(timeLeft);
+
+      timerInterval = setInterval(() => {
+        timeLeft--;
+        if (timeLeft < 0) {
+          clearInterval(timerInterval);
+          timerInterval = null;
+          startButton.textContent = 'Restart Exercise';
+          return;
+        }
+        updateDisplay(timeLeft);
+      }, 1000);
+
+      startButton.textContent = 'Exercise in Progress...';
+    }
+
+    startButton.addEventListener('click', startTimer);
+    </script>
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      background-color: #f9fafb;
+      color: #212529;
+      line-height: 1.5;
+      background-image: url(background.jpg);
+      background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    }
+    .resources-section {
+      padding: 60px 16px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .resources-section h2 {
+      text-align: center;
+      font-size: 2em;
+      margin-bottom: 40px;
+    }
+    .video-grid, .link-list {
+      display: grid;
+      gap: 24px;
+      margin-bottom: 48px;
+    }
+    /* two columns on medium+ screens, one column on small screens */
+    @media (min-width: 768px) {
+      .video-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    .video-item {
+      background-color: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .video-item iframe {
+      width: 100%;
+      height: 315px;
+      border: 0;
+    }
+    .video-item .video-title {
+      padding: 12px;
+      font-size: 1.1em;
+      font-weight: 500;
+    }
+    .breath-card {
+      background-color: #fff;
+      border-radius: 16px;
+      padding: 32px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      max-width: 500px;
+      width: 90%;
+      text-align: center;
+    }
+    .breath-card h3 {
+      margin-top: 0;
+      margin-bottom: 24px;
+      font-size: 1.75em;
+    }
+    .timer-circle {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      background-color: #4F46E5; /* primary color */
+      background-color: rgba(79, 70, 229, 0.1);
+      margin: 0 auto 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .timer-circle span {
+      font-size: 2.5em;
+      font-weight: bold;
+      color: #4F46E5;
+    }
+    .btn {
+      background-color: #4F46E5;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-size: 1em;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .btn:hover {
+      background-color: #3730a3;
+    }
+    .breath-steps {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 32px;
+    }
+    .breath-steps .step {
+      background-color: #f1f3f5;
+      padding: 12px;
+      border-radius: 8px;
+      flex: 1;
+      margin: 0 4px;
+    }
+    .breath-steps .step .label {
+      font-weight: bold;
+      margin-bottom: 4px;
+      color: #4F46E5;
+    }
+     .center-wrapper {
+  display: flex;
+  justify-content: center;
+     }
+    .links-section {
+      background-color: white;
+      padding: 24px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .links-section h3 {
+      margin-top: 0;
+      font-size: 1.4em;
+      margin-bottom: 16px;
+    }
+    .links-section ul {
+      list-style: disc inside;
+      padding-left: 0;
+    }
+    .links-section ul li {
+      margin-bottom: 8px;
+    }
+    .links-section ul li a {
+      color: #4F46E5;
+      text-decoration: none;
+    }
+    .links-section ul li a:hover {
+      text-decoration: underline;
+    }
+    
+  </style>
+</head>
+<body>
+
+  <section class="resources-section" id="mindfulness-resources">
+    <h2>Mindfulness & Self-Help Resources</h2>
+
+    <!-- YouTube Videos Grid -->
+    <div class="video-grid">
+      <!-- Video 1 -->
+      <div class="video-item">
+        <iframe 
+          src="https://www.youtube.com/watch?v=VpHz8Mb13_Y" 
+          title="Guided Mindfulness Meditation" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+          allowfullscreen>
+        </iframe>
+        <div class="video-title">Guided Mindfulness Meditation (5 min)</div>
+      </div>
+
+      <!-- Video 2 -->
+      <div class="video-item">
+        <iframe 
+          src="https://www.youtube.com/embed/wfDTp2GogaQ" 
+          title="Another Mindfulness / Breathing Video" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+          allowfullscreen>
+        </iframe>
+        <div class="video-title">Mindful Breathing Exercise</div>
+      </div>
+
+      <!-- Add more videos similarly -->
+    </div>
+     <div class="center-wrapper">
+           <div class="breath-card">
+    <h3>5-Minute Breathing Exercise</h3>
+    <div class="timer-circle">
+      <span id="breathTimer">05:00</span>
+    </div>
+    <button id="startBreathing" class="btn">Start Exercise</button>
+
+    <div class="breath-steps">
+      <div class="step">
+        <div class="label">Breathe In</div>
+        <div>4 sec</div>
+      </div>
+      <div class="step">
+        <div class="label">Hold</div>
+        <div>4 sec</div>
+      </div>
+      <div class="step">
+        <div class="label">Breathe Out</div>
+        <div>6 sec</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <!-- External Resources / Links -->
+    <div class="links-section">
+      <h3>Helpful Articles & Websites</h3>
+      <ul>
+        <li><a href="https://www.mentalhealth.org" target="_blank" rel="noopener">MentalHealth.org — Mental Health Information & Support</a></li>
+        <li><a href="https://www.who.int/health-topics/mental-health" target="_blank" rel="noopener">World Health Organization: Mental Health Overview</a></li>
+        <li><a href="https://www.mind.org.uk/information-support/" target="_blank" rel="noopener">Mind — Support for Mental Wellbeing</a></li>
+        <!-- Add more links as needed -->
+      </ul>
+    </div>
+
+  </section>
+
+</body>
+</html>

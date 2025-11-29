@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MindWell — Coping Tools</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      background-color: #f9fafb;
+      color: #212529;
+      line-height: 1.5;
+      padding: 20px;
+    }
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .section-title {
+      text-align: center;
+      font-size: 2em;
+      margin-bottom: 24px;
+    }
+
+    .video-grid {
+      display: grid;
+      gap: 24px;
+    }
+    /* responsive grid: auto-adjust columns by width of browser */
+    .video-grid iframe {
+      width: 100%;
+      height: 315px;
+      border: none;
+    }
+
+    .links-list {
+      margin-top: 40px;
+      background-color: white;
+      padding: 24px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .links-list ul {
+      list-style: disc inside;
+      padding-left: 0;
+    }
+    .links-list li {
+      margin: 8px 0;
+    }
+    .links-list a {
+      color: #4F46E5;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .links-list a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <h2 class="section-title">Coping Tools & Resources</h2>
+
+    <!-- Embedded YouTube Videos Section -->
+    <div class="video-grid">
+      <!-- Example Video 1 -->
+      <div class="video-item">
+        <iframe 
+          src="https://www.youtube.com/embed/wfDTp2GogaQ" 
+          title="Guided Mindfulness Meditation" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+          allowfullscreen>
+        </iframe>
+      </div>
+
+      <!-- Example Video 2: replace VIDEO_ID_2 with actual ID -->
+      <div class="video-item">
+        <iframe 
+          src="https://www.youtube.com/embed/VIDEO_ID_2" 
+          title="Breathing Exercise / Coping Video" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+          allowfullscreen>
+        </iframe>
+      </div>
+
+      <!-- Add more videos similarly -->
+    </div>
+
+    <!-- External Links Section -->
+    <div class="links-list">
+      <h3>Helpful Websites & Articles</h3>
+      <ul>
+        <li><a href="https://www.mentalhealth.org.uk" target="_blank" rel="noopener">Mental Health Foundation — Mental Health Tips & Resources</a></li>
+        <li><a href="https://www.nami.org" target="_blank" rel="noopener">National Alliance on Mental Illness (NAMI)</a></li>
+        <li><a href="https://www.helpguide.org" target="_blank" rel="noopener">HelpGuide — Stress Management & Coping Strategies</a></li>
+        <li><a href="https://www.cdc.gov/mental-health/living-with/index.html" target="_blank" rel="noopener">CDC — Mental Health & Well-being Guidance</a></li>
+        <!-- Add more links as needed -->
+      </ul>
+    </div>
+
+  </div>
+
+</body>
+</html>

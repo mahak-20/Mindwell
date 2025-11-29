@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Find a Therapist — MindWell</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      background-color: #f9fafb;
+      color: #212529;
+      line-height: 1.5;
+    }
+
+    .therapists-section {
+      padding: 60px 16px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .therapists-section h1 {
+      text-align: center;
+      font-size: 2.25em;
+      margin-bottom: 40px;
+    }
+
+    .therapist-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+    }
+
+    .therapist-card {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      display: flex;
+      flex-direction: column;
+    }
+    .therapist-card img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+    .therapist-card-content {
+      padding: 24px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .therapist-card-content h3 {
+      margin: 0 0 8px;
+      font-size: 1.4em;
+    }
+    .therapist-card-content .role {
+      margin: 0 0 12px;
+      font-weight: 500;
+      color: #4F46E5; /* primary color */
+    }
+    .therapist-card-content p {
+      margin: 0 0 16px;
+      color: #555;
+      font-size: 0.95em;
+      line-height: 1.4;
+    }
+    .therapist-card-footer {
+      margin-top: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .therapist-card-footer .availability {
+      font-size: 0.85em;
+      color: #777;
+    }
+    .therapist-card-footer button {
+      background-color: #4F46E5; /* primary color */
+      color: white;
+      border: none;
+      padding: 10px 16px;
+      border-radius: 8px;
+      font-size: 0.95em;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .therapist-card-footer button:hover {
+      background-color: #3730A3;
+    }
+    .view-all-wrapper {
+      text-align: center;
+      margin-top: 40px;
+    }
+    .view-all-wrapper button {
+      background: transparent;
+      border: 2px solid #4F46E5;
+      color: #4F46E5;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-size: 1em;
+      cursor: pointer;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    .view-all-wrapper button:hover {
+      background-color: #4F46E5;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+  <section class="therapists-section" id="therapists">
+    <h1>Find a Therapist</h1>
+    <div class="therapist-grid">
+
+      <!-- Therapist 1 -->
+      <div class="therapist-card">
+        <img src="woman.jpg" alt="Dr. Ananya Verma">
+        <div class="therapist-card-content">
+          <h3>Dr. Ananya Verma</h3>
+          <div class="role">Clinical Psychologist</div>
+          <p>Specialization: Anxiety disorders, Stress management, Mindfulness-based therapy. <br>
+             Experience: 8 years. <br>
+             Languages: Hindi, English.</p>
+          <div class="therapist-card-footer">
+            <span class="availability">Online & In-person (Delhi NCR)</span>
+            <button>Book Session</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Therapist 2 -->
+      <div class="therapist-card">
+        <img src="download.png" alt="Mr. Sandeep Malhotra">
+        <div class="therapist-card-content">
+          <h3>Mr. Sandeep Malhotra</h3>
+          <div class="role">Counselor (Licence: MA Counselling Psychology)</div>
+          <p>Focus: Depression, Relationship & LGBTQIA+ friendly counselling. <br>
+             Experience: 5 years. <br>
+             Languages: Hindi, English.</p>
+          <div class="therapist-card-footer">
+            <span class="availability">Online Only</span>
+            <button>Book Session</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Therapist 3 -->
+      <div class="therapist-card">
+        <img src="images (6).jpg" alt="Dr. Priya Singh">
+        <div class="therapist-card-content">
+          <h3>Dr. Priya Singh</h3>
+          <div class="role">Psychiatrist / CBT & Psychotherapy Specialist</div>
+          <p>Expertise: Mood disorders, PTSD & trauma-informed therapy, Medication management. <br>
+             Experience: 12 years. <br>
+             Languages: English, Hindi, Punjabi.</p>
+          <div class="therapist-card-footer">
+            <span class="availability">In-person & Telepsychiatry</span>
+            <button>Book Session</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Therapist 4 -->
+      <div class="therapist-card">
+        <img src="woman.jpg" alt="Ms. Neha Kapoor">
+        <div class="therapist-card-content">
+          <h3>Ms. Neha Kapoor</h3>
+          <div class="role">Licensed Counselor & Mindfulness Trainer</div>
+          <p>Specializes in: Teen counselling, Parenting & family therapy, Adolescent mental health. <br>
+             Experience: 6 years. <br>
+             Languages: Hindi, English.</p>
+          <div class="therapist-card-footer">
+            <span class="availability">In-person (Gurugram) & Online</span>
+            <button>Book Session</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Therapist 5 -->
+      <div class="therapist-card">
+        <img src="download (7).jpg" alt="Dr. Rajiv Nair">
+        <div class="therapist-card-content">
+          <h3>Dr. Rajiv Nair</h3>
+          <div class="role">PhD Clinical Psychology – CBT & Behavioral Therapy Expert</div>
+          <p>Focus: OCD, Panic disorder, Stress management for corporate professionals. <br>
+             Experience: 15 years. <br>
+             Languages: English, Hindi, Malayalam.</p>
+          <div class="therapist-card-footer">
+            <span class="availability">Online & Offline (Delhi / Mumbai)</span>
+            <button>Book Session</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="view-all-wrapper">
+      <button>View All Professionals</button>
+    </div>
+  </section>
+
+</body>
+</html>

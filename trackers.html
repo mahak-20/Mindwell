@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MindWell — Trackers</title>
+  <!-- Load Chart.js for graphing -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      margin:0;
+      font-family: sans-serif;
+      background-color: #f9fafb;
+      color: #212529;
+      padding: 20px;
+    }
+    .tracker-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+    #moodChart{
+      background-image: url(image.jpg);
+      background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    }
+    .input-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 16px;
+    }
+    .input-row select,
+    .input-row input {
+      padding: 8px;
+      font-size: 1rem;
+    }
+    .input-row button {
+      padding: 8px 16px;
+      background-color: #4F46E5;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 24px;
+    }
+    table, th, td {
+      border: 1px solid #ccc;
+    }
+    th, td {
+      padding: 8px;
+      text-align: left;
+    }
+    .chart-wrapper {
+      margin: 40px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="tracker-container">
+    <h1 style="color:#4F46E5;">Mood & Habit Tracker</h1>
+
+    <div class="input-row">
+      <label>
+        Date:
+        <input type="date" id="entry-date" />
+      </label>
+
+      <label>
+        Mood / Habit:
+        <select id="entry-value">
+          <option value="5">😊 Excellent (5)</option>
+          <option value="4">🙂 Good (4)</option>
+          <option value="3">😐 Okay (3)</option>
+          <option value="2">😔 Low (2)</option>
+          <option value="1">😢 Bad (1)</option>
+        </select>
+      </label>
+
+      <button id="add-entry">Add Entry</button>
+    </div>
+
+    <table id="entries-table">
+      <thead>
+        <tr><th>Date</th><th>Value</th></tr>
+      </thead>
+      <tbody>
+        <!-- entries go here -->
+      </tbody>
+    </table>
+
+    <div class="chart-wrapper">
+      <canvas id="moodChart"></canvas>
+    </div>
+  </div>
+
+  <script>
+    // Load stored data or init empty
+    const STORAGE_KEY = 'mindwell_mood_entries';
+    let entries = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+
+    const tableBody = document.querySelector('#entries-table tbody');
+    const dateInput = document.getElementById('entry-date');
+    const valueSelect = document.getElementById('entry-value');
+    const addBtn = document.getElementById('add-entry');
+    const ctx = document.getElementById('moodChart').getContext('2d');
+
+    function saveEntries() {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(entries));
+    }
+
+    function renderTable() {
+      tableBody.innerHTML = '';
+      entries.forEach(e => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `<td>${e.date}</td><td>${e.value}</td>`;
+        tableBody.append(tr);
+      });
+    }
+
+    function renderChart() {
+      const labels = entries.map(e => e.date);
+      const data = entries.map(e => e.value);
+      new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: labels,
+          datasets: [{
+            label: 'Mood / Habit Score',
+            data: data,
+            fill: false,
+            borderColor: '#4F46E5',
+            tension: 0.2
+          }]
+        },
+        options: {
+          scales: {
+            y: {
+              min: 0,
+              max: 5,
+              ticks: {
+                stepSize: 1
+              }
+            }
+          }
+        }
+      });
+    }
+
+    function addEntry() {
+      const date = dateInput.value;
+      const value = Number(valueSelect.value);
+      if (!date) {
+        alert('Please select a date');
+        return;
+      }
+      entries.push({ date, value });
+      // Sort by date
+      entries.sort((a,b) => new Date(a.date) - new Date(b.date));
+      saveEntries();
+      renderTable();
+      renderChart();
+    }
+
+    addBtn.addEventListener('click', addEntry);
+
+    // initial render
+    renderTable();
+    renderChart();
+  </script>
+
+</body>
+</html>
